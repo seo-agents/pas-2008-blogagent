@@ -221,8 +221,8 @@
     </select>
     <label>English Variety <span class="optional-label">(optional)</span></label>
     <select id="english_variety">
+      <option value="British" selected>British English</option>
       <option value="American">American English</option>
-      <option value="British">British English</option>
       <option value="Australian">Australian English</option>
       <option value="Canadian">Canadian English</option>
     </select>
@@ -342,7 +342,7 @@
   let currentTopic      = '';
   let currentNotes      = '';
   let currentCountry    = 'global';
-  let currentEnglish    = 'American';
+  let currentEnglish    = 'British';
   let currentClientName = '';
 
   function getClientName(url) {
@@ -549,7 +549,7 @@
     document.getElementById('client_website').value       = '';
     const taField = document.getElementById('target_audience'); if(taField) taField.value = '';
     currentKeyword = ''; currentTopic = ''; currentNotes = ''; currentCountry = 'global';
-    currentEnglish = 'American'; currentClientName = '';
+    currentEnglish = 'British'; currentClientName = '';
     currentData = {};
   }
 
