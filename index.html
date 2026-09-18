@@ -335,7 +335,7 @@
     document.getElementById('modal-overlay').classList.add('active');
   }
 
-  const WEBHOOK_URL = 'https://n8n-fmid.srv1801788.hstgr.cloud/webhook/365b2412-defd-4125-a609-b7b483680484';
+  const WEBHOOK_URL = 'https://n8n-fmid.srv1801788.hstgr.cloud/webhook/f7091f9c-adca-4dc2-bc4d-00ec7c8c032f';
 
   let currentData       = {};
   let currentKeyword    = '';
@@ -504,6 +504,7 @@
         <tr><td><strong>External Links Used</strong></td><td>${item.external_links_found || 'None'}</td></tr>
         <tr><td><strong>FAQ Sources</strong></td><td>${(item.faq_sources || []).join('<br>') || 'None'}</td></tr>
         <tr><td><strong>E-E-A-T Overall</strong></td><td>${(item.eeat_score || {}).overall || ''}/10</td></tr>
+        <tr><td><strong>AI Detection</strong></td><td>${item.ai_detection_score !== null && item.ai_detection_score !== undefined ? item.ai_detection_score + '% - ' + (item.ai_detection_verdict || '') : 'Not checked'}</td></tr>
         <tr><td><strong>Total Cost</strong></td><td>${item.article_cost || ''}</td></tr>
       </table>
     `;
@@ -793,6 +794,8 @@
           client_name:            currentClientName,
           seo_check:              currentData.seo_check             || {},
           eeat_score:             currentData.eeat_score            || {},
+          ai_detection_score:     currentData.ai_detection_score     ?? null,
+          ai_detection_verdict:   currentData.ai_detection_verdict   || '',
           article_cost:           currentData.article_cost          || '',
           real_questions:         currentData.real_questions        || [],
           output_language:        outputLanguage,
